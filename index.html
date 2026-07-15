@@ -34,6 +34,11 @@
       html {
         scroll-behavior: smooth;
         -webkit-text-size-adjust: 100%;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      html::-webkit-scrollbar {
+        display: none;
       }
       body {
         background: var(--bg);
@@ -43,6 +48,11 @@
         line-height: 1.6;
         min-height: 100vh;
         overflow-x: hidden;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      body::-webkit-scrollbar {
+        display: none;
       }
 
       canvas#stars {
@@ -183,12 +193,14 @@
       }
       .div-label {
         font-family: "JetBrains Mono", monospace;
-        font-size: 9px;
-        color: var(--muted);
-        letter-spacing: 0.14em;
+        font-size: 11.5px;
+        font-weight: 400;
+        color: var(--accent);
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
         padding-left: 14px;
         white-space: nowrap;
-        opacity: 0.5;
+        opacity: 0.82;
       }
 
       .section {
@@ -553,7 +565,7 @@
       <div class="divider">
         <div class="div-left"></div>
         <div class="div-line"></div>
-        <div class="div-label">контакт</div>
+        <div class="div-label">контакты</div>
       </div>
 
       <section class="section" id="contact">
