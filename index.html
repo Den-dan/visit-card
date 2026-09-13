@@ -654,48 +654,13 @@
       let W,
         H,
         stars = [],
-        meteors = [],
-        nebulae = [];
+        meteors = [];
       let meteorTimerId = null;
 
       function resize() {
         W = c.width = window.innerWidth;
         H = c.height = window.innerHeight;
-        buildNebulae();
         buildStars();
-      }
-
-      function buildNebulae() {
-        nebulae = [
-          {
-            x: W * 0.12,
-            y: H * 0.18,
-            r: W * 0.22,
-            ca: "rgba(28,48,90,",
-            cb: 0.13,
-          },
-          {
-            x: W * 0.82,
-            y: H * 0.55,
-            r: W * 0.18,
-            ca: "rgba(18,38,72,",
-            cb: 0.1,
-          },
-          {
-            x: W * 0.48,
-            y: H * 0.9,
-            r: W * 0.25,
-            ca: "rgba(12,28,58,",
-            cb: 0.08,
-          },
-          {
-            x: W * 0.65,
-            y: H * 0.15,
-            r: W * 0.12,
-            ca: "rgba(22,42,75,",
-            cb: 0.07,
-          },
-        ];
       }
 
       function buildStars() {
@@ -768,17 +733,6 @@
       function draw() {
         ctx.clearRect(0, 0, W, H);
         t += 0.016;
-
-        for (const n of nebulae) {
-          const g = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.r);
-          g.addColorStop(0, n.ca + n.cb + ")");
-          g.addColorStop(0.45, n.ca + n.cb * 0.45 + ")");
-          g.addColorStop(1, n.ca + "0)");
-          ctx.beginPath();
-          ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-          ctx.fillStyle = g;
-          ctx.fill();
-        }
 
         for (const s of stars) {
           let o = s.o;
